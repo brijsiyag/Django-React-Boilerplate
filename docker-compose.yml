@@ -19,11 +19,13 @@ services:
     ports:
       - 8000:8000
     environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - DB_POSTGRES_NAME=postgres
+      - DB_POSTGRES_USER=postgres
+      - DB_POSTGRES_PASSWORD=postgres
+      - DB_POSTGRES_HOST=postgres
+      - DB_POSTGRES_PORT=5432
       - SMTP_EMAIL_HOST=smtp4dev
-      - SMTP_EMAIL_USER=''
+      - SMTP_EMAIL_HOST_USER=''
       - SMTP_EMAIL_HOST_PASSWORD=''
       - SMTP_EMAIL_PORT=25
     volumes:

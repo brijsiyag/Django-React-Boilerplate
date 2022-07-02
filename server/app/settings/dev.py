@@ -16,25 +16,6 @@ ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_NAME'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': 'postgres',
-        'PORT': 5432,
-    }
-}
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp4dev'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 25
-# EMAIL_USE_TLS = True
-EMAIL_USE_SSL = True
-
 # # EMAIL ADDRESSES
 # SENDER_EMAIL = config("SENDER_EMAIL")
 # ADMINS_EMAIL = ast.literal_eval(config("ADMINS_EMAIL"))

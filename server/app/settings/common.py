@@ -35,6 +35,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_POSTGRES_NAME'),
+        'USER': os.environ.get('DB_POSTGRES_USER'),
+        'PASSWORD': os.environ.get('DB_POSTGRES_PASSWORD'),
+        'HOST': os.environ['DB_POSTGRES_HOST'],
+        'PORT': os.environ['DB_POSTGRES_PORT'],
+    }
+}
+
 ROOT_URLCONF = 'app.urls'
 TEMPLATES = [
     {
@@ -99,6 +111,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ['SMTP_EMAIL_HOST']
+EMAIL_HOST_USER = os.environ['SMTP_EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['SMTP_EMAIL_HOST_PASSWORD']
+EMAIL_PORT = os.environ['SMTP_EMAIL_PORT']
+# EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
 
 REST_FRAMEWORK = {
     'COERCE_DECIMAL_TO_STRING': False,
