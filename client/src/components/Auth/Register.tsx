@@ -78,7 +78,7 @@ const Register = () => {
     const data = new FormData(event.currentTarget);
     dispatch(setLoading(true));
     axios
-      .post("/auth/users/", {
+      .post("/api/auth/users/", {
         first_name: data.get("first_name"),
         last_name: data.get("last_name"),
         email: data.get("email"),

@@ -17,7 +17,7 @@ const ActivateUser = (props: Props) => {
   useEffect(() => {
     dispatch(setLoading(true));
     axios
-      .post("/auth/users/activation/", {
+      .post("/api/auth/users/activation/", {
         uid,
         token,
       })

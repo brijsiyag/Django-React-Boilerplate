@@ -10,9 +10,8 @@ services:
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
 
-
   server:
-    build: 
+    build:
       context: ./server
       dockerfile: Dockerfile.dev
     command: python manage.py runserver 0.0.0.0:8000
@@ -32,7 +31,6 @@ services:
       - ./server:/usr/src/app/server
     depends_on:
       - postgres
-    
 
   client:
     build:
@@ -46,10 +44,20 @@ services:
       - ./client:/usr/src/app/client
     environment:
       CHOKIDAR_USEPOLLING: "true"
-      
 
   smtp4dev:
-    image: rnwood/smtp4dev:v3
+    image: rnwood/smtp4dev:latest
     ports:
       - 3030:80
+    restart: always
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5000:80"
+    depends_on:
+      - server
+      - client
     restart: always

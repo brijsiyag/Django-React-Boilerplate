@@ -3,7 +3,7 @@ import { Axios ,AxiosError}  from "axios";
 
 export const fetchUser = createAsyncThunk('auth/users',async (axios:Axios, { dispatch, requestId, getState, rejectWithValue, signal, extra })=>{
   try {
-    const response = await axios.get('/auth/users/me/');
+    const response = await axios.get('/api/auth/users/me/');
     return response.data
   } catch (error) {
     const err = error as AxiosError;
