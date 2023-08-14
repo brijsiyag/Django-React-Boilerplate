@@ -43,7 +43,7 @@ const ResetPassword = (props: Props) => {
     dispatch(setLoading(true));
     const data = new FormData(event.currentTarget);
     axios
-      .post("/auth/users/reset_password/", {
+      .post("/api/auth/users/reset_password/", {
         email: data.get("email"),
       })
       .then((res: AxiosResponse) => {

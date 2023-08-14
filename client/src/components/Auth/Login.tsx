@@ -72,7 +72,7 @@ const Login = () => {
     setAlert(undefined);
     const data = new FormData(event.currentTarget);
     dispatch(setLoading(true));
-    Axios.post("/auth/jwt/create/", {
+    Axios.post("/api/auth/jwt/create/", {
       username: data.get("username"),
       password: data.get("password"),
     })

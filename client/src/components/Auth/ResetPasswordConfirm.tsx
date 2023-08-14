@@ -49,7 +49,7 @@ const ResetPasswordConfirm = (props: Props) => {
     setAlert(undefined);
     const data = new FormData(event.currentTarget);
     axios
-      .post("/auth/users/reset_password_confirm/", {
+      .post("/api/auth/users/reset_password_confirm/", {
         new_password: data.get("password"),
         re_new_password: data.get("re_password"),
         token: token,

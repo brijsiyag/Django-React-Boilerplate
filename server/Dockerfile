@@ -17,6 +17,8 @@ RUN pipenv install --system --dev
 
 COPY . .
 
+RUN python3 manage.py makemigrations && python3 manage.py migrate
+
 EXPOSE 8000
 
 

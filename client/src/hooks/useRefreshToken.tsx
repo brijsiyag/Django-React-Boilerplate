@@ -7,7 +7,7 @@ const useRefreshToken = () => {
   const refresh = async (): Promise<string> => {
     return await new Promise((resolve, reject) => {
       axios
-        .post("/auth/jwt/refresh/", {
+        .post("/api/auth/jwt/refresh/", {
           refresh: `${getRefreshToken()}`,
         })
         .then((res) => {
